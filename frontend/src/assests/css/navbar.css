@@ -1,9 +1,0 @@
-.navbar {
-  display: flex;
-  justify-content: center;
-  margin: 30px;
-}
-
-.navbar > button {
-    margin: 15px;
-}
