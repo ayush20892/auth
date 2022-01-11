@@ -12,7 +12,7 @@ app.use(
     origin: [
       "http://localhost:3000",
       "https://unusual-ecom.netlify.app",
-      "https://deploy-preview-2--unusual-ecom.netlify.app",
+      "https://deploy-preview-2--unusual-ecom.netlify.app",,"https://compassionate-villani-883236.netlify.app"
     ],
     credentials: true,
   })
