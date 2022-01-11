@@ -6,7 +6,7 @@ export const signup = async (name, email, password) => {
     const {
       data: { success, user },
     } = await axios.post(
-      "http://localhost:4000/api/v1/signup",
+      "https://backend-ayush.herokuapp.com/api/v1/signup",
       {
         name,
         email,
@@ -27,7 +27,7 @@ export const login = async (email, password) => {
     const {
       data: { success, user },
     } = await axios.post(
-      "http://localhost:4000/api/v1/login",
+      "https://backend-ayush.herokuapp.com/api/v1/login",
       {
         email,
         password,
@@ -44,7 +44,7 @@ export const login = async (email, password) => {
 
 export const logout = async (email, password) => {
   try {
-    await axios.get("http://localhost:4000/api/v1/logout", {
+    await axios.get("https://backend-ayush.herokuapp.com/api/v1/logout", {
       withCredentials: true,
     });
   } catch (err) {
@@ -57,7 +57,7 @@ export const forgotPassword = async (email) => {
     const {
       data: { success },
     } = await axios.post(
-      "http://localhost:4000/api/v1/forgotPassword",
+      "https://backend-ayush.herokuapp.com/api/v1/forgotPassword",
       {
         email,
       },
@@ -76,7 +76,7 @@ export const verifyCode = async (forgotCode) => {
     const {
       data: { success },
     } = await axios.post(
-      "http://localhost:4000/api/v1/verifyCode",
+      "https://backend-ayush.herokuapp.com/api/v1/verifyCode",
       {
         forgotCode,
       },
@@ -94,10 +94,13 @@ export const passwordReset = async (password, confirmPassword) => {
   try {
     const {
       data: { success, user },
-    } = await axios.post("http://localhost:4000/api/v1/password/reset", {
-      password,
-      confirmPassword,
-    });
+    } = await axios.post(
+      "https://backend-ayush.herokuapp.com/api/v1/password/reset",
+      {
+        password,
+        confirmPassword,
+      }
+    );
     return { success, user };
   } catch (err) {
     console.log(err);
@@ -106,9 +109,12 @@ export const passwordReset = async (password, confirmPassword) => {
 
 export const userDashboard = async (email, password) => {
   try {
-    return await axios.get("http://localhost:4000/api/v1/userDashboard", {
-      withCredentials: true,
-    });
+    return await axios.get(
+      "https://backend-ayush.herokuapp.com/api/v1/userDashboard",
+      {
+        withCredentials: true,
+      }
+    );
   } catch (err) {
     console.log(err);
   }
@@ -118,9 +124,12 @@ export const getAllProducts = async () => {
   try {
     const {
       data: { success, productResult },
-    } = await axios.get("http://localhost:4000/api/v1/getAllProducts", {
-      withCredentials: true,
-    });
+    } = await axios.get(
+      "https://backend-ayush.herokuapp.com/api/v1/getAllProducts",
+      {
+        withCredentials: true,
+      }
+    );
     return { success, productResult };
   } catch (err) {
     console.log(err);
@@ -131,9 +140,12 @@ export const getAllWishlistItems = async () => {
   try {
     const {
       data: { success, wishlist },
-    } = await axios.get("http://localhost:4000/api/v1/user/wishlist", {
-      withCredentials: true,
-    });
+    } = await axios.get(
+      "https://backend-ayush.herokuapp.com/api/v1/user/wishlist",
+      {
+        withCredentials: true,
+      }
+    );
     return { success, wishlist };
   } catch (err) {
     console.log(err);
@@ -144,7 +156,7 @@ export const addToWishlist = async (productId) => {
   try {
     await axios({
       method: "post",
-      url: "http://localhost:4000/api/v1/user/wishlist",
+      url: "https://backend-ayush.herokuapp.com/api/v1/user/wishlist",
       data: {
         productId: productId,
       },
@@ -158,7 +170,7 @@ export const deleteFromWishlist = async (productId) => {
   try {
     await axios({
       method: "delete",
-      url: "http://localhost:4000/api/v1/user/wishlist",
+      url: "https://backend-ayush.herokuapp.com/api/v1/user/wishlist",
       data: {
         productId: productId,
       },
@@ -172,9 +184,12 @@ export const getAllCartItems = async () => {
   try {
     const {
       data: { success, cart },
-    } = await axios.get("http://localhost:4000/api/v1/user/cart", {
-      withCredentials: true,
-    });
+    } = await axios.get(
+      "https://backend-ayush.herokuapp.com/api/v1/user/cart",
+      {
+        withCredentials: true,
+      }
+    );
     return { success, cart };
   } catch (err) {
     console.log(err);
@@ -185,7 +200,7 @@ export const addToCart = async (productId) => {
   try {
     await axios({
       method: "post",
-      url: "http://localhost:4000/api/v1/user/cart",
+      url: "https://backend-ayush.herokuapp.com/api/v1/user/cart",
       data: {
         productId: productId,
       },
@@ -199,7 +214,7 @@ export const deleteFromCart = async (productId) => {
   try {
     await axios({
       method: "delete",
-      url: "http://localhost:4000/api/v1/user/cart",
+      url: "https://backend-ayush.herokuapp.com/api/v1/user/cart",
       data: {
         productId: productId,
       },
